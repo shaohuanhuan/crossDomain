@@ -46,6 +46,7 @@ let controlBar = ['.logo-img', '.nav-a']
       for(let con of $(control)){
         editApi.crateEditTag($(con), (type, context) => {
           console.log(type)
+          // 触发test中的方法
           window.parent.previwControl(type, context, $(con))
         })
       }
