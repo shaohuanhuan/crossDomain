@@ -1,0 +1,10 @@
+extends ../layout
+block css
+  link(rel='stylesheet', href='/css/template#{them}/home/index.css?v=#{version}')
+  link(rel="stylesheet" href="/plugins/bootstrap/dist/css/bootstrap.min.css")
+block content
+  include ../components/header
+append scripts
+  script(src="/plugins/jquery/dist/jquery.min.js")
+  script(src='/plugins/bootstrap/dist/js/bootstrap.min.js')
+  script(src='/js/home.js?v=#{version}')

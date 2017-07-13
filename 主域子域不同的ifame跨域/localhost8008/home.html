@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+	<link href="../favicon.ico" mce_href="../favicon.ico" rel="shortcut icon" type="image/x-icon" />
+    <!-- rev-hash -->
+    <link rel="stylesheet" href="../style/common/common.css?v=e3495a31c64e37a71990d45ef58d2a85">
+    <link rel="stylesheet" href="../style/index.css?v=2145200485b6c6ea37ecfed0b90b5b99">
+    <!-- end -->
+</head>
+<body>
+    <p><input type="button" value="execAiframe" onclick="exec_iframe()">
+    <input type="button" value="编辑页面啊" id="seller" style="display: none;"></p>
+  <iframe src="http://127.0.0.1:8080/b2b_pc/static/view/index.html" name="myframe" width="1500" height="1000"></iframe>
+  
+<script src="../js/jquery-1.9.1.min.js"  type="text/javascript"></script>
+
+<script type="text/javascript">
+   // A ==> seller - home.html ,B ==> pc-index.html  
+  function fMain(){  
+    alert('Amain function 执行成功');  
+  }  
+  
+  // exec iframe function  
+  function exec_iframe(){  
+    if(typeof(exec_obj)=='undefined'){  
+        exec_obj = document.createElement('iframe');  
+        exec_obj.name = 'tmp_frame';  
+        exec_obj.src = 'http://127.0.0.1:8080/b2b_pc/static/view/execB.html';  
+        exec_obj.style.display = 'none';  
+        document.body.appendChild(exec_obj);  
+    }else{  
+        exec_obj.src = 'http://127.0.0.1:8080/b2b_pc/static/view/execB.html?' + Math.random();  
+    }  
+  } 
+  function pcdoseller(){
+    $('#seller').show();
+  }
+</script>
+</body>
+</html>

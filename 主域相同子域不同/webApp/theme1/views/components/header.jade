@@ -1,0 +1,54 @@
+.header
+  // 头部
+  .top
+    .container
+      .user-group
+        span.glyphicon.glyphicon-cart 0
+        span Sign In
+        span  |
+        span Join Free
+  // 中间
+  .middle.container.hidden-xs
+    .row
+      img.logo-img.col-sm-3(src='https://img.onloon.co/shop/20161107115853504040843.png')
+      .search-container.col-sm-4.col-sm-offset-5
+        .input-group
+          input.form-control(type='text')
+          span.input-group-addon
+            i.glyphicon.glyphicon-search
+  nav.navbar.navbar-inverse.bottom
+    .container
+      .navbar-header
+        button.navbar-toggle.collapsed(type="button", data-toggle="collapse", data-target="#navbar-collapse", aria-expanded="false")
+          span.sr-only Toggle navigation
+          span.icon-bar
+          span.icon-bar
+          span.icon-bar
+      #navbar-collapse.collapse.navbar-collapse
+        ul.nav.navbar-nav
+          li
+            a(href="#" class='nav-a') HOME
+          li.dropdown
+            a.dropdown-toggle(href="#", data-toggle="dropdown", role="button", aria-haspopup="true", aria-expanded="false")
+              | Products
+              span.caret
+            ul.dropdown-menu
+              li
+                a(href="#") Action
+              li
+                a(href="#") Another action
+              li
+                a(href="#") Something else here
+          li
+            a(class='nav-a') Company Profile
+          li
+            a(class='nav-a') Download
+          li
+            a(class='nav-a') Feedback
+          li.visible-xs
+            .input-group
+              input.form-control(type='text')
+              span.input-group-addon
+                i.glyphicon.glyphicon-search
+
+

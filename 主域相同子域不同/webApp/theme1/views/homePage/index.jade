@@ -1,0 +1,29 @@
+extends ../layout
+block css
+  link(rel="stylesheet" href="/thirtyPart/bootstrap/bootstrap.min.css")
+  link(rel='stylesheet', href='/theme#{them}/css/home/index.css?v=#{version}')
+block content
+  include ../components/header
+  .containers
+    div#carousel-banner.carousel.slide(data-ride="carousel")
+      ol.carousel-indicators
+        li.active(data-target="#carousel-banner",data-slide-to="0")
+        li(data-target="#carousel-banner",data-slide-to="1")
+      .carousel-inner(role="listbox")
+        .item.active
+          img(src="images/1.png",alt="")
+          .carousel-caption 吃舅啊大饭
+        .item
+          img(src="images/2.png",alt="")
+          .carousel-caption 吃馒头啊包子
+      a.left.carousel-control(href="#carousel-banner",role="button",data-slide="prev")
+        span.glyphicon.glyphicon-chevron-left(aria-hidden="true")
+        //- span.sr-only Previous
+      a.right.carousel-control(href="#carousel-banner",role="button",data-slide="next")
+        span.glyphicon.glyphicon-chevron-right(aria-hidden="true")
+        //- span.sr-only Next
+    div#list-box.container
+append scripts
+  script(src="/plugins/jquery/dist/jquery.min.js")
+  script(src='/plugins/bootstrap/dist/js/bootstrap.min.js')
+  script(src='/theme#{them}/js/home.js?v=#{version}')

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+
+    <title>杭州用户统计图</title>
+
+    <meta content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no' name='viewport'>
+  </head>
+  <body class="">
+  </body>
+
+  <script src="/view/js/jQuery/jQuery-2.1.4.min.js"></script>
+  <script type="text/javascript">
+    var state = 0, 
+        iframe = document.createElement('iframe'),
+        loadfn = function() {
+            if (state === 1) {
+                var data = iframe.contentWindow.name;    // 读取数据
+                alert(data);    //弹出'I was there!'
+            } else if (state === 0) {
+                state = 1;
+                iframe.contentWindow.location = "http://localhost:8000/view/pages/orderDateStcs/proxy.html";    
+                // 设置的代理文件
+            }  
+        };
+        iframe.src = 'http://localhost/ky1.html';
+        if (iframe.attachEvent) {
+            iframe.attachEvent('onload', loadfn);
+        } else {
+            iframe.onload  = loadfn;
+        }
+        document.body.appendChild(iframe);
+        //设置src,append(iframe)之后就去src页面（这里是ky1.html）处理
+        //ky1.html页面设置了name
+        //再初始化 进入loadfn方法，
+        //先去state==0,到proxy.html页面执行了空的js，
+        //再出来去state==1 去把jky1.html的window.name拿出来
+
+        // 总结起来即：iframe的src属性由外域转向本地域，跨域数据即由iframe的window.name从外域传递到本地域。这个就巧妙地绕过了浏览器的跨域访问限制，但同时它又是安全操作。
+    
+	
+  </script>
+
+
+</html>

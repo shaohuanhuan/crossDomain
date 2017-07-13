@@ -1,0 +1,14 @@
+doctype html
+html
+  head
+    title= title
+    meta(name="viewport",content="width=device-width, initial-scale=1.0")
+    block css
+  body
+    block content
+    block scripts
+      script.
+        document.domain = 'localhost';
+        var them = '#{them}';
+        var styles = '#{styles}';
+        var version = '#{version}';

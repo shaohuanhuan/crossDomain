@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>onloon</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+        <link href="../../favicon.ico" mce_href="../../favicon.ico" rel="shortcut icon" type="image/x-icon" />
+        <script type="text/javascript" src="../../bower_components/jquery/dist/jquery.min.js"></script>
+    </head>
+    <body>
+      <!-- <p><input type="button" value="execBmain" onclick="exec_main()"></p>  -->
+      <p><input type="button" value="seller变化" onclick="exec_main(1)"></p> 
+         
+    </body>
+
+<script type="text/javascript">
+  require(['index'], function (index){
+    index.home();
+  }); 
+  
+   // iframe js function   
+  function fIframe(){  
+    alert('Biframe function 执行成功');  
+  }  
+  
+  // exec main function  
+  function exec_main(data){  
+    if(typeof(exec_obj)=='undefined'){  
+        exec_obj = document.createElement('iframe');  
+        exec_obj.name = 'tmp_frame';  
+        exec_obj.src = 'http://localhost:8008/view/execA.html?data='+data;  
+        exec_obj.style.display = 'none';  
+        document.body.appendChild(exec_obj);  
+    }else{  
+        exec_obj.src = 'http://localhost:8008/view/execA.html?' + Math.random()+'&data='+data;  
+    }  
+  }
+  // function pcdoseller(data){
+  //   exec_main(data);
+  // }  
+</script>
+</html>

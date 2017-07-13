@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en" style="height: 100%">
+<head>
+  <meta charset="UTF-8">
+  <title>test</title>
+</head>
+<body style="height: 100%">
+<div style="width: 200px;height: 100%; display: inline-block">
+  <input type="file" id="file" style="display: none; float: left;" value="请选择文件">
+  <input type="text" id="text" style="display: none; float: left;">
+</div>
+<iframe name="iframename" src="http://localhost:8080/?type=1" style="height: 100%;width: calc(100% - 220px)"></iframe>
+</body>
+<script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.js"></script>
+<script>
+  document.domain = 'localhost';
+  let editTag = ''
+  function previwControl(type, context, $tag) {
+    editTag = $tag
+    if(type.toLowerCase() === 'img')
+      $('#text').hide()
+      $('#file').show()
+    if(type.toLowerCase() === 'a'){
+      $('#file').hide()
+      $('#text').show()
+      $('#text').val(context)
+    }
+  }
+  $('#text').on('input', function () {
+    iframename.window.set(editTag, $('#text').val())
+  })
+  $('#file').on('change', function () {
+    var file = $('#file')[0].files[0];
+    let reader = new FileReader()
+    reader.onload = (e) => {
+      let src = e.target.result
+      let img = new Image()
+      img.src = src;
+      iframename.window.say(src);
+    }
+    reader.readAsDataURL(file)
+  })
+</script>
+</html>
